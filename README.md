@@ -1,4 +1,4 @@
-# 🍽️ Adi Jaya Service: Aplikasi Pemesanan Jasa Service Rumah
+#  Adi Jaya Service: Aplikasi Pemesanan Jasa Service Rumah
 
 Adi Jaya Services adalah aplikasi web yang memungkinkan pengguna untuk dengan mudah memesan layanan rumah tangga seperti perbaikan listrik dan plumbing, pemasangan furnitur dan perlengkapan, dekorasi rumah, dan pembersihan mendalam. Aplikasi ini terintegrasi dengan API backend untuk mengelola detail layanan, pemesanan, dan data pengguna secara efisien, memberikan pengalaman yang lancar dan responsif.
 
