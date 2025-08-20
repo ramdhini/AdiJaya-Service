@@ -1,69 +1,55 @@
-# React + TypeScript + Vite
+# 🍽️ Adi Jaya Service: Aplikasi Pemesanan Jasa Service Rumah
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Adi Jaya Services adalah aplikasi web yang memungkinkan pengguna untuk dengan mudah memesan layanan rumah tangga seperti perbaikan listrik dan plumbing, pemasangan furnitur dan perlengkapan, dekorasi rumah, dan pembersihan mendalam. Aplikasi ini terintegrasi dengan API backend untuk mengelola detail layanan, pemesanan, dan data pengguna secara efisien, memberikan pengalaman yang lancar dan responsif.
 
-Currently, two official plugins are available:
+![image alt](https://github.com/ramdhini/AdiJaya-Service/blob/f80c9c1727ac0dfdf0596c04474b3e41089122ea/mockup-adijaya.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Fitur
 
-## Expanding the ESLint configuration
+- Booking Layanan Rumah: Memesan layanan seperti listrik, plumbing, dekorasi, dan kebersihan dengan mudah.
+- Detail Layanan Lengkap: Informasi harga, durasi, deskripsi, benefit, dan testimonial tersedia di setiap layanan.
+- Status Populer & Rating: Menunjukkan layanan yang paling diminati dan ulasan pelanggan.
+- UI Responsif & Modern: Dibangun dengan React dan TailwindCSS untuk tampilan bersih dan mobile-friendly.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Tech Stack
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/) 
+- [TypeScript](https://www.typescriptlang.org/) 
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Laravel](https://laravel.com/)
+- [Filament](https://filamentphp.com/)
+- [MAMP & MySQL](https://www.mamp.info/en/windows/)
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## ⚙️ Instalasi & Menjalankan Proyek
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# Clone repo
+git clone https://github.com/ramdhini/AdiJaya-Service.git
+
+# Masuk ke folder
+cd AdiJaya-Service
+
+# Install dependencies
+npm install
+
+# Jalankan aplikasi
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+**## 📸 Link Deploy**
+on progress
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Kontribusi
+Kontribusi disambut baik! Jika Anda ingin berkontribusi, silakan fork repositori ini dan buat pull request dengan fitur atau perbaikan Anda.
+
+
+
+## Kontak
+Jika Anda memiliki pertanyaan, saran, atau ingin melaporkan masalah, silakan hubungi:
+
+* [Ramdhini] - [ramdhininovita0811@gmail.com]
+
+
+
