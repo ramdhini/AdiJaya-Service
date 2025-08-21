@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "http://porto.rynx.my.id/api/$1" },
+    { "source": "/storage/(.*)", "destination": "http://porto.rynx.my.id/storage/$1" }
+  ]
+}
