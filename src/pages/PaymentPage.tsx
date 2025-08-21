@@ -529,7 +529,21 @@ export default function PaymentPage () {
      
       </AccordionSection>
 
+  {formErrors.length > 0 && (
+    <div className="mt-4 rounded-lg bg-red-100 p-3 text-sm text-red-600">
+      <ul className="list-disc pl-4">
+        {formErrors.map((err, idx) => (
+          <li key={idx}>{err.message}</li>
+        ))}
+      </ul>
+    </div>
+  )}
 
+  {successMessage && (
+    <div className="mt-4 rounded-lg bg-green-100 p-3 text-sm text-green-700">
+      {successMessage}
+    </div>
+  )}
       <button
         type="submit"
         className="mt-[54px] w-full rounded-full bg-shujia-orange py-[14px] font-semibold text-white transition-all duration-300 hover:shadow-[0px_4px_10px_0px_#D04B1E80]"
