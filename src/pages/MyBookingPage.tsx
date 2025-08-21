@@ -1,6 +1,6 @@
 import { useState } from "react";
 import z from "zod";
-import { BookingDetails } from "../types/type";
+import type { BookingDetails } from "../types/type";
 import { viewBookingSchema } from "../types/validationBooking";
 import apiClient, { isAxiosError } from "../services/apiServices";
 import { Link } from "react-router-dom";
@@ -79,7 +79,9 @@ export default function MyBookingPage() {
 
     const BASE_URL = import.meta.env.VITE_REACT_API_STORAGE_URL;
 
-
+if(loading){
+        return <p className="flex items-center justify-center min-h-screen bg-white"> loading data...</p>;
+    }
 
     return (
         <main className="relative mx-auto min-h-screen w-full max-w-[640px] bg-[#F4F5F7] px-5 pb-[138px] pt-[50px]">

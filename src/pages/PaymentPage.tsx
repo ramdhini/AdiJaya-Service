@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { BookingFormData, HomeService, type CartItem } from "../types/type";
+import type { BookingFormData, HomeService, CartItem } from "../types/type";
 import { z } from "zod";
 import apiClient from "../services/apiServices";
 import { paymentSchema } from "../types/validationBooking";

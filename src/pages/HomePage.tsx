@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Category, HomeService } from "../types/type";
 import apiClient from "../services/apiServices";
-import { Link, Links } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const fetchCategories = async() => {

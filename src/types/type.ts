@@ -59,7 +59,7 @@ interface TransactionDetails{
     id: number,
     price: number,
     home_service_id: number,
-    home_services: HomeService,
+    home_service: HomeService,
 }
 
 export interface CartItem{

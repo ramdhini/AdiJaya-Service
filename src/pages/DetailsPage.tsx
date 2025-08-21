@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { CartItem, type HomeService } from "../types/type";
+import type { CartItem, HomeService } from "../types/type";
 import apiClient from "../services/apiServices";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -165,7 +165,7 @@ export default function DetailsPage () {
   <header className="mt-[100px] px-5">
     <div className="relative flex w-full items-center justify-center overflow-hidden rounded-[40px]">
       <img
-        src={`${BASE_URL}/${service.thumbnail}`}
+        src={service ? `${BASE_URL}/${service.thumbnail}` : ""}
         alt="image"
         className="h-full w-full object-cover"
       />
@@ -178,7 +178,7 @@ export default function DetailsPage () {
         <p className="font-semibold">4.8</p>
       </div>
 
-      {service.is_popular ? 
+      {service?.is_popular ?
 
       <div className="absolute bottom-5 left-[20.5px] flex shrink-0 items-center gap-[2px] rounded-full bg-white px-[8px] py-[7px]">
         <img
@@ -192,7 +192,7 @@ export default function DetailsPage () {
 
     </div>
     <h1 className="mt-5 text-2xl font-bold leading-[36px]">
-      {service.name}
+      {service?.name}
     </h1>
   </header>
   <section
@@ -207,7 +207,7 @@ export default function DetailsPage () {
       />
       <div>
         <strong className="text-sm font-semibold leading-[21px]">
-          {service.duration}
+          {service?.duration}
         </strong>
         <p className="text-sm leading-[21px] text-shujia-gray">Durasi</p>
       </div>
@@ -233,7 +233,7 @@ export default function DetailsPage () {
       />
       <div>
         <strong className="text-sm font-semibold leading-[21px]">
-          {service.category.name}
+          {service?.category.name}
         </strong>
         <p className="text-sm leading-[21px] text-shujia-gray">Kategori</p>
       </div>
@@ -255,7 +255,7 @@ export default function DetailsPage () {
   <section id="ServiceDescription" className="mt-5 px-5">
     <h3 className="font-semibold">Detail</h3>
     <p className="leading-7">
-      {service.about}
+      {service?.about}
     </p>
   </section>
 
@@ -264,28 +264,28 @@ export default function DetailsPage () {
     <div className="flex w-full flex-col gap-3 rounded-[24px] border border-shujia-graylight p-[14px]">
       <h3 className="font-semibold">Manfaat Layanan</h3>
       
-      {service.benefits.length > 0 ? 
-        service.benefits.map((benefit, index) => (
-        <div key={benefit.id} className="flex flex-col gap-3" >
-        <div className="flex items-center gap-3">
-            <img
-            src="/assets/images/icons/verify-service-details.svg"
-            alt="icon"
-            className="h-[32px] w-[32px] shrink-0"
-            />
-            
-            <p className="leading-[26px]">
-                {benefit.name}
-            </p>
-        </div>
-        {index < service.benefits.length - 1 && (
-             <hr className="border-shujia-graylight" />
-        )}
-       
-        </div>
-        ))
+      {service?.benefits && service.benefits.length > 0 ? (
+  service.benefits.map((benefit, index) => (
+    <div key={benefit.id} className="flex flex-col gap-3">
+      <div className="flex items-center gap-3">
+        <img
+          src="/assets/images/icons/verify-service-details.svg"
+          alt="icon"
+          className="h-[32px] w-[32px] shrink-0"
+        />
+        <p className="leading-[26px]">
+          {benefit.name}
+        </p>
+      </div>
+      {index < (service?.benefits?.length ?? 0) - 1 && (
+        <hr className="border-shujia-graylight" />
+      )}
+    </div>
+  ))
+) : (
+  "belum ada data"
+)}
 
-       : "belum ada data" }
       
     </div>
   </section>
@@ -303,62 +303,47 @@ export default function DetailsPage () {
     slidesOffsetBefore={20}
     >
 
-        {service.testimonials.length > 0 ? (
-            service.testimonials.map((testimonial) => (
-        <SwiperSlide key={testimonial.id} className="swiper-slide !w-fit">
-          <a href="#" className="card">
-            <div className="flex w-[300px] flex-col gap-4 rounded-3xl border border-shujia-graylight p-5">
-              <div className="stars flex items-center">
-                <img
-                  src="/assets/images/icons/star-service-details.svg"
-                  alt="icon"
-                  className="h-[22px] w-[22px] shrink-0"
-                />
-                <img
-                  src="/assets/images/icons/star-service-details.svg"
-                  alt="icon"
-                  className="h-[22px] w-[22px] shrink-0"
-                />
-                <img
-                  src="/assets/images/icons/star-service-details.svg"
-                  alt="icon"
-                  className="h-[22px] w-[22px] shrink-0"
-                />
-                <img
-                  src="/assets/images/icons/star-service-details.svg"
-                  alt="icon"
-                  className="h-[22px] w-[22px] shrink-0"
-                />
-                <img
-                  src="/assets/images/icons/star-service-details.svg"
-                  alt="icon"
-                  className="h-[22px] w-[22px] shrink-0"
-                />
-              </div>
-              <p className="leading-7">
-                {testimonial.message}
-              </p>
-              <div className="profil flex items-center gap-3">
-                <div className="flex h-[60px] w-[60px] items-center justify-center overflow-hidden rounded-full">
-                  <img
-                    src={`${BASE_URL}/${testimonial.photo}`}
-                    alt="image"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <div className="flex flex-col gap-[2px]">
-                  <h5 className="font-semibold">{testimonial.name}</h5>
-                  <p className="text-sm leading-[21px] text-shujia-gray">
-                    Pelanggan
-                  </p>
-                </div>
-              </div>
+        {service?.testimonials && service.testimonials.length > 0 ? (
+  service.testimonials.map((testimonial) => (
+    <SwiperSlide key={testimonial.id} className="swiper-slide !w-fit">
+      <a href="#" className="card">
+        <div className="flex w-[300px] flex-col gap-4 rounded-3xl border border-shujia-graylight p-5">
+          <div className="stars flex items-center">
+            {Array.from({ length: 5 }).map((_, idx) => (
+              <img
+                key={idx}
+                src="/assets/images/icons/star-service-details.svg"
+                alt="icon"
+                className="h-[22px] w-[22px] shrink-0"
+              />
+            ))}
+          </div>
+          <p className="leading-7">
+            {testimonial.message}
+          </p>
+          <div className="profil flex items-center gap-3">
+            <div className="flex h-[60px] w-[60px] items-center justify-center overflow-hidden rounded-full">
+              <img
+                src={`${BASE_URL}/${testimonial.photo}`}
+                alt="image"
+                className="h-full w-full object-cover"
+              />
             </div>
-          </a>
-        </SwiperSlide>
+            <div className="flex flex-col gap-[2px]">
+              <h5 className="font-semibold">{testimonial.name}</h5>
+              <p className="text-sm leading-[21px] text-shujia-gray">
+                Pelanggan
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </SwiperSlide>
+  ))
+) : (
+  "belum ada data terbaru"
+)}
 
-         ))
-        )  : 'belum ada data terbaru'}
 
         
     
@@ -372,7 +357,7 @@ export default function DetailsPage () {
       <div className="flex items-center gap-[45px] rounded-[24px] bg-shujia-black px-[20px] py-[14px]">
         <div>
           <strong className="whitespace-nowrap text-[22px] font-extrabold leading-[33px] text-white">
-            {formatCurrency(service.price)}
+            {service?.price != null ? formatCurrency(service.price) : " "}
           </strong>
           <p className="text-sm leading-[21px] text-white">Garansi Dana</p>
         </div>

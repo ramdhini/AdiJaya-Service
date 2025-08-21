@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BookingFormData } from "../types/type";
+import type { BookingFormData } from "../types/type";
 import { z } from "zod";
 import { Link, useNavigate } from "react-router-dom";
 import { bookingSchema } from "../types/validationBooking";
